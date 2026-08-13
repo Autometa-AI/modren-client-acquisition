@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Modren Client Acquisition (MCA) · Autometa</title>
+<style>
+  :root{
+    --bg:#f5f8fc;--surface:#ffffff;--ink:#132139;--muted:#5f6f88;
+    --brand:#2f6bff;--brand2:#14c1c9;--gold:#d4a53a;--border:#e6ecf5;
+    --shadow:0 10px 40px rgba(19,33,57,.08);--shadow-lg:0 24px 70px rgba(19,33,57,.16);--radius:20px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;text-size-adjust:100%;-webkit-text-size-adjust:100%;overscroll-behavior-y:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  a{color:inherit}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(245,248,252,.8);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--border)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.02em;cursor:pointer}
+  .logo .dot{width:26px;height:26px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:inline-block}
+  .nav-links{display:flex;gap:4px;flex-wrap:wrap}
+  .nav-links a{font-size:13px;color:var(--muted);text-decoration:none;padding:7px 11px;border-radius:999px;transition:.25s;cursor:pointer}
+  .nav-links a:hover{color:var(--ink);background:#eef3fb}
+  .nav-links a:active{background:#e3ebfa}
+  @media(max-width:940px){
+    .nav-in{gap:10px}
+    .logo{font-size:15px}
+    .nav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:2px;padding:4px 0;flex:1;justify-content:flex-end;-ms-overflow-style:none}
+    .nav-links::-webkit-scrollbar{display:none}
+    .nav-links a{flex:none;font-size:13px;padding:8px 12px;min-width:38px;text-align:center}
+  }
+  @media(max-width:560px){
+    .logo{font-size:0;gap:0}
+    .logo .dot{width:30px;height:30px}
+    .nav-links{justify-content:flex-start}
+  }
+
+  /* HERO */
+  header.hero{background:radial-gradient(1200px 500px at 80% -10%, rgba(20,193,201,.35), transparent 60%),linear-gradient(135deg,#0f1e3d 0%,#1c3c86 55%,#2f6bff 100%);color:#fff;padding:66px 0 76px;position:relative;overflow:hidden}
+  .hero .tag{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;background:rgba(255,255,255,.14);padding:7px 14px;border-radius:999px;margin-bottom:20px;border:1px solid rgba(255,255,255,.2)}
+  .hero h1{font-size:clamp(30px,6vw,50px);line-height:1.08;font-weight:800;letter-spacing:-.03em;max-width:20ch}
+  .hero p.sub{font-size:clamp(16px,2.5vw,20px);color:#dbe6ff;margin-top:18px;max-width:66ch}
+  .hero .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:28px;max-width:900px}
+  .hero .cards > div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:18px 20px}
+  .hero .cards .k{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9fd0ff;margin-bottom:6px}
+  .hero .cards p{color:#e2eaff;font-size:14.5px;margin:0}
+
+  /* PIPELINE STRIP */
+  .flowstrip{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+  .flowstrip .node{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);padding:8px 13px;border-radius:12px;font-size:13px;color:#eaf0ff;cursor:pointer;transition:.2s}
+  .flowstrip .node:hover{background:rgba(255,255,255,.22)}
+  .flowstrip .arrow{color:#9fd0ff;align-self:center;font-size:14px}
+
+  section{padding:52px 0}
+  .eyebrow{color:var(--brand);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  h2.section-title{font-size:clamp(24px,4vw,33px);letter-spacing:-.02em;margin:10px 0 8px;font-weight:800}
+  .lead{color:var(--muted);font-size:17px;max-width:74ch}
+
+  /* LEGEND */
+  .legend{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+  @media(max-width:640px){.legend{grid-template-columns:1fr}}
+  .legend div{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+  .legend .lk{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+  .legend .why-k{color:var(--gold)}
+  .legend .build-k{color:var(--brand)}
+  .legend p{font-size:14px;color:var(--muted)}
+
+  /* STAGE ACCORDIONS */
+  .stages{display:grid;gap:16px;margin-top:32px}
+  .stage{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:.3s;scroll-margin-top:76px}
+  .stage:hover{box-shadow:var(--shadow-lg)}
+  .stage.foundation{border-left:4px solid var(--brand2)}
+  .s-head{display:flex;align-items:center;gap:16px;padding:22px 24px;cursor:pointer;user-select:none}
+  .s-ico{width:50px;height:50px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:23px;background:linear-gradient(135deg,#eaf1ff,#e6fbfb)}
+  .s-head h3{font-size:19px;letter-spacing:-.01em}
+  .s-head .one{font-size:14px;color:var(--muted);margin-top:2px}
+  .s-num{font-size:12px;font-weight:700;color:var(--brand);background:#eef3fb;border-radius:8px;padding:3px 9px;margin-right:2px}
+  .s-num.f{color:var(--brand2);background:#e6fbfb}
+  .s-chev{margin-left:auto;flex:none;color:var(--muted);transition:.35s;font-size:20px}
+  .stage.open .s-chev{transform:rotate(180deg)}
+  .s-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.22,1,.36,1)}
+  .s-body-in{padding:2px 24px 26px 90px}
+  @media(max-width:600px){.s-body-in{padding:2px 22px 24px 22px}}
+  .block-k{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin:16px 0 7px}
+  .why-k{color:var(--gold)}.build-k{color:var(--brand)}
+  .motiv{font-size:15px;color:#2b3a52;background:#fdf8ee;border:1px solid #f2e6c9;border-radius:12px;padding:13px 15px}
+  .does{font-size:15px;color:#25344c;margin-top:4px}
+  .does li{list-style:none;position:relative;padding-left:24px;margin-top:8px}
+  .does li::before{content:"";position:absolute;left:3px;top:9px;width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2))}
+
+  /* BUTTONS TO SUBPAGES */
+  .btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .pgbtn{display:inline-flex;align-items:center;gap:8px;background:#eef3fb;border:1px solid var(--border);color:var(--ink);font-size:13.5px;font-weight:600;padding:9px 15px;border-radius:11px;cursor:pointer;transition:.2s;text-decoration:none}
+  .pgbtn:hover{background:#fff;box-shadow:var(--shadow);transform:translateY(-1px)}
+  .pgbtn .ar{color:var(--brand)}
+  .pgbtn.tool{background:linear-gradient(135deg,#eaf1ff,#e6fbfb);border-color:#dbe8fb}
+  .pgbtn.tool .ar{color:var(--brand2)}
+  .pgbtn.tbd{opacity:.72}
+  .btn-cap{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);width:100%;margin-top:6px}
+
+  /* TOOLTIP TERMS */
+  .term{border-bottom:1.5px dotted var(--brand);cursor:help;position:relative;font-weight:600;color:#1c3c86}
+  .term .tip{visibility:hidden;opacity:0;position:absolute;left:50%;bottom:135%;transform:translateX(-50%) translateY(4px);width:min(280px,72vw);background:#0f1e3d;color:#eaf0ff;font-size:13px;font-weight:400;line-height:1.5;text-align:left;padding:11px 13px;border-radius:12px;box-shadow:var(--shadow-lg);transition:.2s;z-index:40;pointer-events:none}
+  .term .tip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:#0f1e3d}
+  .term:hover .tip,.term.active .tip{visibility:visible;opacity:1;transform:translateX(-50%) translateY(0)}
+  @media(hover:none){
+    /* touch: only reveal on tap (.active), and show as a fixed bottom sheet so it never clips */
+    .term:hover .tip{visibility:hidden;opacity:0}
+    .term .tip{position:fixed;left:12px;right:12px;bottom:16px;top:auto;width:auto;transform:translateY(12px);font-size:14px;padding:15px 16px;box-shadow:0 -8px 40px rgba(19,33,57,.35)}
+    .term .tip::after{display:none}
+    .term.active .tip{visibility:visible;opacity:1;transform:translateY(0)}
+    .term{-webkit-tap-highlight-color:transparent}
+  }
+
+  /* SUBPAGE VIEW */
+  #subpage{display:none;min-height:70vh}
+  #subpage.active{display:block}
+  .crumb{font-size:13px;color:var(--muted);padding:22px 0 0}
+  .crumb a{color:var(--brand);text-decoration:none;font-weight:600;cursor:pointer}
+  .sub-hero{background:linear-gradient(135deg,#0f1e3d,#22336b);color:#fff;border-radius:22px;padding:38px 40px;margin-top:14px;box-shadow:var(--shadow-lg)}
+  .sub-hero .kind{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:999px;margin-bottom:16px}
+  .sub-hero .kind.tool{background:rgba(20,193,201,.22);border-color:rgba(20,193,201,.4)}
+  .sub-hero h1{font-size:clamp(26px,4.5vw,38px);letter-spacing:-.02em;line-height:1.12}
+  .sub-hero p{color:#cdd9f4;margin-top:12px;max-width:66ch;font-size:16px}
+  .placeholder{background:var(--surface);border:1.5px dashed #c7d4ea;border-radius:18px;padding:40px;margin:26px 0;text-align:center;color:var(--muted)}
+  .placeholder .big{font-size:40px;margin-bottom:12px}
+  .placeholder h3{color:var(--ink);font-size:19px;margin-bottom:8px}
+  .placeholder p{font-size:15px;max-width:56ch;margin:0 auto}
+  /* SUBPAGE BODY CONTENT (used when a page has a `body`) */
+  #subbody{display:none;margin:26px 0 8px}
+  #subbody.active{display:block}
+  .pg-sec{background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);padding:26px 28px;margin-bottom:16px}
+  .pg-sec > .block-k:first-child{margin-top:0}
+  .pg-sec h3{font-size:19px;letter-spacing:-.01em;margin-bottom:6px}
+  .pg-sec h4{font-size:15.5px;letter-spacing:-.01em;margin:18px 0 6px}
+  .pg-sec p{font-size:15px;color:#25344c;margin-top:8px}
+  .pg-sec p.muted{color:var(--muted);font-size:14.5px}
+  .pg-lead{font-size:15.5px;color:var(--muted);margin-top:6px}
+  .pg-sec ol{font-size:15px;color:#25344c;margin:8px 0 0 20px}
+  .pg-sec ol li{margin-top:8px;padding-left:4px}
+  .steps{counter-reset:st;list-style:none;margin-top:10px}
+  .steps li{position:relative;padding-left:38px;margin-top:14px;font-size:15px;color:#25344c}
+  .steps li::before{counter-increment:st;content:counter(st);position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:9px;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand2))}
+  .note{background:#fdf8ee;border:1px solid #f2e6c9;border-radius:12px;padding:13px 15px;font-size:14.5px;color:#2b3a52;margin-top:14px}
+  .note b{color:var(--ink)}
+  .warn{background:#fff1f1;border:1px solid #f6d5d5;border-radius:12px;padding:13px 15px;font-size:14.5px;color:#4a2b2b;margin-top:14px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr}}
+  .mini{background:#f7faff;border:1px solid var(--border);border-radius:14px;padding:15px 17px}
+  .mini .mk{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--brand);margin-bottom:6px}
+  .mini p{font-size:14.5px;color:#25344c;margin:0}
+  .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:14px;border:1px solid var(--border);border-radius:14px}
+  table.tbl{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px}
+  table.tbl th{text-align:left;background:#f2f7ff;color:var(--ink);font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:11px 14px;border-bottom:1px solid var(--border)}
+  table.tbl td{padding:12px 14px;border-bottom:1px solid var(--border);color:#25344c;vertical-align:top}
+  table.tbl tr:last-child td{border-bottom:none}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .chip{background:#eef3fb;border:1px solid var(--border);border-radius:999px;padding:6px 13px;font-size:13px;font-weight:600;color:#1c3c86}
+  .chip.no{background:#fff1f1;border-color:#f6d5d5;color:#8a3b3b}
+  code{background:#eef3fb;border:1px solid var(--border);border-radius:6px;padding:1px 6px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  @media(max-width:680px){.pg-sec{padding:20px 17px;border-radius:16px}}
+
+  .backbtn{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);color:var(--ink);font-size:14px;font-weight:600;padding:11px 18px;border-radius:12px;cursor:pointer;box-shadow:var(--shadow);margin:8px 0 40px}
+  .backbtn:hover{transform:translateY(-1px)}
+
+  footer{background:#0f1e3d;color:#c3d0ee;padding:40px 0;margin-top:20px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer .logo{color:#fff}
+  footer p{font-size:13px;max-width:62ch}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* app-like press feedback + view transition */
+  .pgbtn:active{transform:scale(.97)}
+  .s-head:active{background:#fafcff}
+  .flowstrip .node:active{transform:scale(.97)}
+  .backbtn:active{transform:scale(.98)}
+  #subpage.active{animation:viewIn .3s cubic-bezier(.22,1,.36,1)}
+  @keyframes viewIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+
+  /* ------- MOBILE / APP LAYOUT ------- */
+  @media(max-width:680px){
+    .wrap{padding:0 16px}
+    section{padding:38px 0}
+    header.hero{padding:44px 0 52px}
+    .hero .tag{margin-bottom:16px;font-size:11.5px}
+    .hero p.sub{margin-top:14px}
+    .hero .cards{margin-top:22px}
+    .flowstrip{gap:6px;margin-top:22px}
+    .flowstrip .arrow{display:none}
+    .flowstrip .node{flex:1 1 44%}
+    .legend{gap:10px}
+    .stages{gap:13px;margin-top:24px}
+    .s-head{padding:16px 15px;gap:12px}
+    .s-ico{width:42px;height:42px;font-size:20px;border-radius:12px}
+    .s-head h3{font-size:16.5px;line-height:1.25}
+    .s-head .one{font-size:13px}
+    .s-num{display:inline-block;margin-bottom:3px}
+    .s-body-in{padding:2px 16px 22px 16px}
+    .motiv{font-size:14.5px;padding:12px 13px}
+    .does{font-size:14.5px}
+    .btn-row{gap:8px}
+    .pgbtn{font-size:13.5px;padding:11px 14px;flex:1 1 100%;justify-content:space-between}
+    .pgbtn .ar{margin-left:auto}
+    .sub-hero{padding:26px 22px;border-radius:18px}
+    .placeholder{padding:30px 20px}
+    .backbtn{width:100%;justify-content:center}
+    footer .wrap{flex-direction:column;align-items:flex-start;gap:12px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="logo" onclick="goHome()"><span class="dot"></span> Modren Client Acquisition (MCA)</div>
+    <div class="nav-links" id="navlinks"></div>
+  </div>
+</nav>
+
+<!-- ===================== HOME VIEW ===================== -->
+<main id="home">
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">Signal Driven Outbound System</span>
+    <h1>A signal-driven outbound engine that finds, qualifies and warms buyers on autopilot.</h1>
+    <p class="sub">One connected system, not nine separate tactics. It runs our own outreach first, then becomes the product we sell to clients. Every stage below explains <b>why</b> it exists and <b>what</b> it must do, and links out to the deep-dive and the exact tools we use.</p>
+    <div class="cards">
+      <div><div class="k">The old way</div><p>Buy a list → blast the same cold email to everyone → hope. Low replies, burnt domains, no learning.</p></div>
+      <div><div class="k">This system</div><p>Detect a <span class="term" style="color:#fff;border-color:#9fd0ff">buying signal<span class="tip">A reason to believe a company may need you right now, e.g. they just started hiring salespeople, raised funding, or opened a new office.</span></span> → enrich → score → reach on the right channel with the right angle → warm → close → revive the no's.</p></div>
+    </div>
+    <div class="flowstrip" id="flowstrip"></div>
+  </div>
+</header>
+
+<section id="how">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">How to read this</span>
+      <h2 class="section-title">Every stage is written in two parts</h2>
+      <p class="lead">Tap any stage to open it. Hover the <span class="term">dotted terms<span class="tip">Like this, hover any dotted term anywhere in the document and a plain-English definition appears. No jargon left unexplained.</span></span> for a plain-English definition. Each stage links to its own deep-dive page and to the specific tools we plug in.</p>
+      <div class="legend">
+        <div><div class="lk why-k">🎯 Why we do it</div><p>The reason the stage earns its place, what breaks in the funnel if we skip it. This is the argument, in blunt terms.</p></div>
+        <div><div class="lk build-k">🛠️ What it must do</div><p>The concrete job of the stage, what has to happen inside it before a lead moves to the next stage.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stages" style="padding-top:8px">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">The Pipeline</span>
+      <h2 class="section-title">Eight stages, two always-on foundations</h2>
+      <p class="lead">A lead flows top to bottom. The two foundation layers at the end run under every stage at once, the shared database and the scoreboard.</p>
+    </div>
+    <div class="stages" id="stagelist"></div>
+  </div>
+</section>
+</main>
+
+<!-- ===================== SUBPAGE VIEW ===================== -->
+<main id="subpage">
+  <div class="wrap">
+    <div class="crumb"><a onclick="goHome()">← Modren Client Acquisition (MCA)</a> <span id="crumbtrail"></span></div>
+    <div class="sub-hero">
+      <span class="kind" id="subkind">Deep dive</span>
+      <h1 id="subtitle">Title</h1>
+      <p id="subintro"></p>
+    </div>
+    <div id="subbody"></div>
+    <div class="placeholder" id="subempty">
+      <div class="big">✍️</div>
+      <h3>This page is yours to fill</h3>
+      <p id="subplaceholder">Blank canvas. Give me the instructions/guide for this page and I'll drop them in here, structured to match the rest of the document.</p>
+    </div>
+    <div class="backbtn" onclick="goBackToStage()">← Back to the pipeline</div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logo"><span class="dot"></span> Modren Client Acquisition (MCA)</div>
+    <p>Built by Abhinav Dunna, Founder of Autometa AI.</p>
+  </div>
+</footer>
+
+<script>
+/* ---------- CONTENT MODEL ---------- */
+/* Each stage: number, icon, title, one-liner, why (HTML, may contain .term spans), does[] list,
+   pages[] = buttons -> subpages.
+   Each page: {id, label, kind:'deep'|'tool', tbd?:true, intro?:string, body?:HTML string}
+   `body` is optional. When present, openPage() renders it in place of the blank placeholder.
+   Write page bodies with the shared classes: .pg-sec, .block-k, .motiv, .does, .steps,
+   .note, .warn, .grid2 > .mini, .tblwrap > table.tbl, .chips > .chip, and .term tooltips. */
+
+const STAGES = [
+  {
+    n:"01", icon:"🎯", title:"ICP Defining &amp; Signal Identification",
+    one:"Decide exactly who we chase, and catch them at the right moment.",
+    why:`If we don't decide what our customer looks like and just approach people with no structure, the close rate is terrible and we burn enrichment money on the wrong list. First we lock the <span class="term">ICP<span class="tip">Ideal Customer Profile, the type of company and person most likely to buy: industry, size, location, tech they use, revenue band.</span></span> and, just as important, the <span class="term">negative ICP<span class="tip">The anti-list, who we must never contact: too small, wrong geography, competitors, and companies who are already our clients.</span></span>. Then we layer <span class="term">signals<span class="tip">Events that say "now is the time", hiring a sales team, new funding, a new office, a leadership change, visiting our site.</span></span> on top, the "why now". Signals without a tight ICP just hand us a bigger pile of the wrong people.`,
+    does:["Write the ICP fingerprint: industry, company size, geography, tech stack, revenue band.","Write the exclusion list so we never cold-pitch a current client or a competitor.","Pick the signals that mean 'ready to buy' for our service and where to watch for them."],
+    pages:[
+      {id:"icp-define", label:"Defining an ICP", kind:"deep"},
+      {id:"icp-negative", label:"Negative ICP / Exclusions", kind:"deep"},
+      {id:"signal-id", label:"Signal Identification", kind:"deep"},
+      {id:"tool-signals", label:"Signal / intent source", kind:"tool", tbd:true}
+    ]
+  },
+  {
+    n:"02", icon:"🗄️", title:"Database Building &amp; Waterfall Enrichment",
+    one:"Turn a company name into a reachable person, with no gaps.",
+    why:`A name with no email, phone or LinkedIn is a dead lead. We build one clean database of accounts and contacts, then use <span class="term">waterfall enrichment<span class="tip">Ask data provider A for the missing email/phone; if it's blank, ask provider B, then C, until the gap is filled, instead of throwing the lead away.</span></span> to fill the <span class="term">data points<span class="tip">The fields we need to actually reach someone: verified email, phone, LinkedIn URL, role, company details.</span></span> that any single provider misses. We also pull in what comes from our own website and inbox. Every contact is <span class="term">verified<span class="tip">Checked that the email actually exists before we send, so we don't hit dead addresses and wreck our sending reputation.</span></span> before it enters the sending list so our <span class="term">bounce rate<span class="tip">The share of emails that fail because the address is invalid. High bounce = inboxes flag us as spam.</span></span> stays low.`,
+    does:["Store every account + contact in one structured database (single source of truth).","Run providers in sequence to fill missing emails/phones instead of dropping the lead.","Verify every email before it can be sent to; only our contact path is exposed."],
+    pages:[
+      {id:"db-build", label:"Building the database", kind:"deep"},
+      {id:"waterfall", label:"Waterfall Enrichment", kind:"deep"},
+      {id:"email-verify", label:"Email Verification", kind:"deep"},
+      {id:"tool-enrich", label:"Enrichment stack", kind:"tool", tbd:true}
+    ]
+  },
+  {
+    n:"03", icon:"🧭", title:"Channel Strategy &amp; Message / Angle Mapping",
+    one:"The signal tells us what to say, and where to say it.",
+    why:`The same message sent to everyone gets ignored everywhere. The signal decides the <span class="term">angle<span class="tip">The specific hook we open with, tied to the signal: "Saw you're scaling the sales team, follow-up usually gets messy at that size."</span></span>, and geography decides the first channel: US/Europe leads open on email, Dubai/Asia leads lean phone-first (subject to the data we actually have). This is where <span class="term">personalization at scale<span class="tip">AI reads the company + the signal and writes a tailored opening line for each lead automatically, so 500 messages feel 1-to-1 without 500 hours of work.</span></span> lives, AI writes the tailored opener from the signal so every touch feels 1-to-1.`,
+    does:["Map each signal to a pain hypothesis, an angle, and a CTA.","Set the geo rule: US/EU → email first, Dubai/Asia → phone-lean.","Use AI to draft the personalized opener per lead from its signal + company data."],
+    pages:[
+      {id:"channel-geo", label:"Channel-by-Geo logic", kind:"deep"},
+      {id:"angle-matrix", label:"Signal → Angle Matrix", kind:"deep"},
+      {id:"ai-personalization", label:"AI Personalization", kind:"deep"}
+    ]
+  },
+  {
+    n:"04", icon:"📡", title:"Multi-Channel Outreach &amp; Deliverability",
+    one:"Reach them across channels, without landing in spam.",
+    why:`This is where most people quietly burn their domain. Before a single cold email goes out we need real sending infrastructure: <span class="term">inbox rotation<span class="tip">Spread sends across several inboxes/domains so no single one looks like it's blasting, protects deliverability.</span></span>, <span class="term">domain warm-up<span class="tip">Gradually ramping a new sending domain over ~3-4 weeks so mailbox providers trust it before real volume.</span></span>, and <span class="term">SPF / DKIM / DMARC<span class="tip">Email authentication records that prove your mail is really from you. Missing them = straight to spam.</span></span>. Then the lead moves through a planned <span class="term">cadence<span class="tip">The scheduled sequence of touches across days and channels, e.g. email day 1, LinkedIn view day 2, follow-up day 5.</span></span> across email, LinkedIn, and (only once warm) WhatsApp/call.`,
+    does:["Stand up secondary domains, rotate inboxes, warm them before volume.","Set SPF/DKIM/DMARC and sensible daily send caps per inbox.","Run the multi-touch cadence; cold channels are email + LinkedIn only."],
+    pages:[
+      {id:"cadence", label:"Sequencing / Cadence", kind:"deep"},
+      {id:"deliverability", label:"Deliverability Setup", kind:"deep"},
+      {id:"tool-instantly", label:"Instantly.ai, Email", kind:"tool"},
+      {id:"tool-zoko", label:"Zoko.io, WhatsApp", kind:"tool"},
+      {id:"tool-linkedin", label:"LinkedIn outreach", kind:"tool", tbd:true},
+      {id:"tool-dialer", label:"Calling / dialer", kind:"tool", tbd:true}
+    ]
+  },
+  {
+    n:"05", icon:"📊", title:"Lead Scoring &amp; Engagement Tracking",
+    one:"Not every lead deserves the same effort, score and sort.",
+    why:`Treating 10,000 leads equally wastes our best hours. <span class="term">Lead scoring<span class="tip">A number that says how valuable and how ready a lead is, so the team works the best ones first.</span></span> combines the <span class="term">ICP-fit score<span class="tip">How well the company matches our ideal profile, static, set at enrichment. A great-fit company scores high before they ever reply.</span></span> (static) with the <span class="term">engagement score<span class="tip">How much interest they've shown, opens, clicks, replies, profile views, site visits. Dynamic, moves with every interaction.</span></span> (dynamic). The higher the score, the faster a human steps in. Scores also <span class="term">decay<span class="tip">A lead's engagement score drops over time if they go quiet, so stale leads don't sit "hot" forever.</span></span> so old interest doesn't look fresh, and every interaction writes back to the database.`,
+    does:["Score = ICP-fit (static) + engagement (dynamic), with decay over time.","Route hot leads to a human fast; let normal leads keep running automated.","Write every open/click/reply/visit back to the lead's record."],
+    pages:[
+      {id:"scoring-model", label:"The Scoring Model", kind:"deep"},
+      {id:"engagement-tracking", label:"Engagement Tracking &amp; DB Write-back", kind:"deep"}
+    ]
+  },
+  {
+    n:"06", icon:"🔁", title:"Nurture &amp; Re-engagement",
+    one:"Interested-but-not-ready? Re-approach on another channel, and let our content warm them.",
+    why:`An interested lead who isn't ready is not a lost lead. We re-approach them on LinkedIn or another channel, this is what we mean by "retargeting" here, <b>not paid ads</b>, and we let our own <span class="term">content<span class="tip">Our organic Instagram/LinkedIn posts. A warm lead who keeps seeing useful content trusts us before we ever pitch again.</span></span> do the warming instead of more cold DMs. A clean three-way split keeps it tidy: <span class="term">opt-out<span class="tip">Anyone who says stop is removed and never contacted again, legally required and protects reputation.</span></span> / converted / re-engage.`,
+    does:["Re-approach warm leads on a different channel (LinkedIn etc.), no ads.","Feed them our organic content so trust builds between touches.","Split every lead cleanly: opt-out, converted, or re-engage, and update the DB."],
+    pages:[
+      {id:"reapproach", label:"Re-approach Playbook", kind:"deep"},
+      {id:"content-fuel", label:"Content-as-Fuel", kind:"deep"}
+    ]
+  },
+  {
+    n:"07", icon:"🤝", title:"Conversion &amp; Handoff",
+    one:"Automation qualifies and books; a human closes.",
+    why:`Hot leads leak out the bottom if there's no clear close step. The system qualifies to <span class="term">MQL<span class="tip">Marketing/Machine-Qualified Lead, a lead that has shown enough fit + interest to be worth a human's time.</span></span> and books the meeting; then a human takes over. Cold WhatsApp and calling happen <b>only here</b>, after the prospect has confirmed by WhatsApp or email that they're open to a call/meet. The <span class="term">handoff<span class="tip">The moment a lead passes from the automated system to a human closer, clean, with full context, so nothing is repeated.</span></span> passes full context to the right human closer on our side.`,
+    does:["Qualify to MQL, then book the meeting automatically.","Call/WhatsApp only after the prospect confirms interest.","Hand off with full context to the right human closer."],
+    pages:[
+      {id:"booking", label:"Booking &amp; Qualification", kind:"deep"},
+      {id:"closer-handoff", label:"Closer Handoff", kind:"deep"}
+    ]
+  },
+  {
+    n:"08", icon:"♻️", title:"Closed-Lost Revival",
+    one:"A 'no' is usually a 'not now'. Bank it and come back.",
+    why:`Most companies forget a lost deal the day it's lost. We keep a <span class="term">closed-lost<span class="tip">A prospect who went through the funnel and said no, stored with the reason, date, and what was discussed.</span></span> database with the reason and date, wait ~10 days (or for a fresh signal), then <span class="term">revive<span class="tip">Re-open a dead deal with a new reason to talk, often a new signal like sudden hiring, on a different channel.</span></span> them on a different channel. Reviving a warm "not now" is far cheaper than finding a brand-new cold prospect.`,
+    does:["Store every no with the reason, date, and context.","Wait ~10 days or watch for a new signal, then re-approach.","Re-enter them into the pipeline on a fresh channel/angle."],
+    pages:[
+      {id:"revival", label:"Revival Triggers &amp; Timing", kind:"deep"}
+    ]
+  }
+];
+
+const FOUNDATIONS = [
+  {
+    n:"A", icon:"🧩", title:"CRM &amp; Lead State Machine",
+    one:"One shared brain that knows where every lead stands.",
+    why:`Without defined states we double-touch people and look amateur. Every lead sits in exactly one <span class="term">state<span class="tip">A clear stage label on each lead so we never send the wrong message to the wrong person: New → Enriched → Contacted → Engaged → Qualified → Meeting → Won/Lost → Revival.</span></span>, with <span class="term">deduplication<span class="tip">Merging the same person across channels, their LinkedIn and their email are one record, not two, so they're never messaged twice.</span></span> so one person is one record across all channels. This layer runs under every stage above.`,
+    does:["Define the states: New → Enriched → Contacted → Engaged → Qualified → Meeting → Won/Lost → Revival.","Deduplicate across channels so one person = one record.","Every stage reads and writes to this single source of truth."],
+    pages:[
+      {id:"state-machine", label:"The State Machine", kind:"deep"},
+      {id:"tool-crm", label:"CRM", kind:"tool", tbd:true}
+    ]
+  },
+  {
+    n:"B", icon:"📈", title:"Measurement &amp; Learning Loop",
+    one:"The scoreboard that tells us which signals actually pay.",
+    why:`This is the difference between a system that improves and one that just runs. We track reply rate, positive-reply rate, meeting rate and cost-per-meeting, broken down <b>by signal and by channel</b>, so we learn which signals convert and pour more into those. That feedback is what makes the <span class="term">lookalike<span class="tip">Once we know who actually converts, we go find more companies that resemble them, the system gets smarter with every closed deal.</span></span> engine smarter over time.`,
+    does:["Track reply, positive-reply, meeting, and cost-per-meeting rates.","Break every metric down by signal and by channel.","Feed the winners back into targeting, keep what converts, cut what doesn't."],
+    pages:[
+      {id:"metrics", label:"Metrics &amp; Dashboard", kind:"deep"}
+    ]
+  }
+];
+
+/* ---------- RENDER HOME ---------- */
+function stageCard(s, isF){
+  const pagesDeep = s.pages.filter(p=>p.kind==="deep");
+  const pagesTool = s.pages.filter(p=>p.kind==="tool");
+  const btn = p => `<span class="pgbtn ${p.kind==='tool'?'tool':''} ${p.tbd?'tbd':''}" onclick="openPage('${p.id}')">${p.kind==='tool'?'🔧':'📄'} ${p.label}${p.tbd?' · TBD':''} <span class="ar">→</span></span>`;
+  return `
+  <div class="stage ${isF?'foundation':''} reveal" id="stage-${s.n}">
+    <div class="s-head" onclick="toggleStage(this)">
+      <div class="s-ico">${s.icon}</div>
+      <div><h3><span class="s-num ${isF?'f':''}">${isF?'Foundation '+s.n:s.n}</span> ${s.title}</h3><div class="one">${s.one}</div></div>
+      <div class="s-chev">⌄</div>
+    </div>
+    <div class="s-body"><div class="s-body-in">
+      <div class="block-k why-k">🎯 Why we do it</div>
+      <p class="motiv">${s.why}</p>
+      <div class="block-k build-k">🛠️ What it must do</div>
+      <ul class="does">${s.does.map(d=>`<li>${d}</li>`).join("")}</ul>
+      ${pagesDeep.length?`<div class="btn-row"><div class="btn-cap">Deep dives: how we do each part</div>${pagesDeep.map(btn).join("")}</div>`:""}
+      ${pagesTool.length?`<div class="btn-row"><div class="btn-cap">Tools: how to set up &amp; use each one</div>${pagesTool.map(btn).join("")}</div>`:""}
+    </div></div>
+  </div>`;
+}
+
+document.getElementById("stagelist").innerHTML =
+  STAGES.map(s=>stageCard(s,false)).join("") + FOUNDATIONS.map(s=>stageCard(s,true)).join("");
+
+/* nav links + flow strip */
+const navHTML = STAGES.map(s=>`<a onclick="jumpStage('${s.n}')">${s.n}</a>`).join("");
+document.getElementById("navlinks").innerHTML = navHTML +
+  FOUNDATIONS.map(s=>`<a onclick="jumpStage('${s.n}')" style="color:var(--brand2)">${s.n}</a>`).join("");
+document.getElementById("flowstrip").innerHTML = STAGES.map((s,i)=>
+  `<span class="node" onclick="jumpStage('${s.n}')">${s.icon} ${s.title.replace(/&amp;/g,'&').split(' ').slice(0,2).join(' ')}</span>${i<STAGES.length-1?'<span class="arrow">→</span>':''}`
+).join("");
+
+/* page index for subpage lookup */
+const PAGE_INDEX = {};
+[...STAGES, ...FOUNDATIONS].forEach(s=>s.pages.forEach(p=>PAGE_INDEX[p.id]={...p, stageN:s.n, stageTitle:s.title}));
+
+/* ---------- INTERACTIONS ---------- */
+function toggleStage(head){
+  const st=head.parentElement, body=st.querySelector('.s-body');
+  if(st.classList.contains('open')){
+    // collapse: lock current height first so the transition runs, then go to 0
+    body.style.overflow='hidden';
+    body.style.maxHeight=body.scrollHeight+'px';
+    requestAnimationFrame(()=>{ body.style.maxHeight='0px'; });
+    st.classList.remove('open');
+  } else {
+    st.classList.add('open');
+    body.style.overflow='hidden';
+    body.style.maxHeight=body.scrollHeight+'px';
+    // once expanded, let content (and tooltips) overflow the card cleanly
+    body.addEventListener('transitionend', function te(){
+      if(st.classList.contains('open')){ body.style.maxHeight='none'; body.style.overflow='visible'; }
+      body.removeEventListener('transitionend', te);
+    });
+  }
+}
+function jumpStage(n){
+  goHome();
+  const st=document.getElementById('stage-'+n);
+  if(st){ if(!st.classList.contains('open')) toggleStage(st.querySelector('.s-head'));
+    setTimeout(()=>st.scrollIntoView({behavior:'smooth',block:'start'}),120); }
+}
+let LAST_STAGE=null;
+function openPage(id){
+  const p=PAGE_INDEX[id]; if(!p) return;
+  LAST_STAGE=p.stageN;
+  document.getElementById('subkind').textContent = p.kind==='tool'?'Tool guide':'Deep dive';
+  document.getElementById('subkind').className = 'kind'+(p.kind==='tool'?' tool':'');
+  document.getElementById('subtitle').innerHTML = p.label.replace(/·\s*TBD/,'');
+  document.getElementById('crumbtrail').innerHTML = ' / '+p.stageTitle.replace(/&amp;/g,'&')+' / <b>'+p.label.replace(/&amp;/g,'&')+'</b>';
+  document.getElementById('subintro').textContent = p.intro ? p.intro : (p.kind==='tool'
+    ? (p.tbd? 'Tool not chosen yet, this page is reserved. Once we pick it, the setup + how-to-use guide goes here.'
+            : 'Setup and how-to-use guide for this tool goes here.')
+    : 'The detailed how-we-do-it for this part of the stage goes here.');
+  document.getElementById('subplaceholder').textContent = p.kind==='tool'
+    ? 'Blank canvas. Give me the guide for '+p.label.replace(/·\s*TBD/,'').trim()+', account setup, config, and how we use it in the funnel, and I\'ll structure it here.'
+    : 'Blank canvas. Give me your instructions for how this should be done and I\'ll drop them in, matched to the document style.';
+
+  /* a page with a `body` renders its real content; otherwise the blank placeholder stays */
+  const bodyEl = document.getElementById('subbody');
+  const emptyEl = document.getElementById('subempty');
+  if(p.body){
+    bodyEl.innerHTML = p.body;
+    bodyEl.classList.add('active');
+    emptyEl.style.display = 'none';
+  } else {
+    bodyEl.innerHTML = '';
+    bodyEl.classList.remove('active');
+    emptyEl.style.display = '';
+  }
+  document.getElementById('home').style.display='none';
+  document.getElementById('subpage').classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'in window?'instant':'auto'});
+}
+function goBackToStage(){ goHome(); if(LAST_STAGE) jumpStage(LAST_STAGE); }
+function goHome(){
+  document.getElementById('subpage').classList.remove('active');
+  document.getElementById('home').style.display='block';
+}
+
+/* tap-to-reveal definitions (works on touch; harmless on desktop where hover also works) */
+document.addEventListener('click', function(e){
+  const t = e.target.closest('.term');
+  document.querySelectorAll('.term.active').forEach(el=>{ if(el!==t) el.classList.remove('active'); });
+  if(t){ e.stopPropagation(); t.classList.toggle('active'); }
+});
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
