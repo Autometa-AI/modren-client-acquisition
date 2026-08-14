@@ -306,196 +306,206 @@ const STAGES = [
     does:["Write the ICP fingerprint: industry, company size, geography, tech stack, revenue band.","Write the exclusion list so we never cold-pitch a current client or a competitor.","Pick the signals that mean 'ready to buy' for our service and where to watch for them."],
     pages:[
       {id:"icp-define", label:"Defining an ICP", kind:"deep",
-       intro:"How a good ICP is actually chosen, the rules that keep it honest, and the applied ICP for Murshid: who we build for, who pays, and how we find them.",
+       intro:"A training page. What an ICP is, how to build one from scratch when you have no customers yet, and the ICP we chose for Murshid.",
        body:`
 <div class="pg-sec">
-  <div class="block-k why-k">Part 1</div>
-  <h3>How a good ICP is chosen</h3>
-  <p class="pg-lead">An <span class="term">ICP<span class="tip">Ideal Customer Profile. The type of company and person most likely to buy, stay, and get a result. Not a wish list, a description derived from evidence.</span></span> is not a wish list written in a room. It is derived backwards from evidence, then written in a form the pipeline can actually use.</p>
-
-  <div class="block-k why-k">The mistake almost everyone makes</div>
-  <p class="motiv">Most ICPs are invented rather than derived, and they mix things a tool can search with things only a human can judge. The result looks convincing in a document and produces garbage in the list build. "Ambitious companies frustrated with their lead flow" cannot be typed into any database. It is a message, not a filter, and it belongs in a different box.</p>
-
-  <div class="block-k build-k">The seven rules</div>
-  <ul class="steps">
-    <li><b>Derive it, don't imagine it.</b> Start from who has already paid, stayed and got a result. Where there is no history yet, start from who has the problem most acutely and treat the first version as a bet, not a fact.</li>
-    <li><b>Rank by result delivered, not revenue.</b> The highest paying customer and the best fit customer are often different companies. Build the profile off the ones who got an outcome with low delivery friction.</li>
-    <li><b>Find the moment, not the demographic.</b> Ask what was happening in the business the week they decided to look. That answer tells you who else is about to have the same week, and it becomes the signal layer.</li>
-    <li><b>Separate the three boxes.</b> Searchable attributes, checkable attributes, and message. Mixing them is the single most common failure.</li>
-    <li><b>Narrow enough to name the accounts.</b> If the list returns forty thousand companies you have written a database query, not an ICP. Aim for a segment you could list by hand.</li>
-    <li><b>Describe both people.</b> In any product sold into a team there is a buyer and a user. They are rarely the same person and the user decides whether the buyer renews.</li>
-    <li><b>Make it falsifiable.</b> Write down what would prove it wrong, and the date you will check. An ICP with no review date becomes a belief.</li>
-  </ul>
-
-  <div class="block-k build-k">The two gates</div>
+  <div class="block-k why-k">Start here</div>
+  <h3>Our ICP in one glance</h3>
+  <p class="pg-lead"><b>An off-plan focused agent selling to overseas investors, at a Dubai brokerage of 15 to 60 agents.</b></p>
   <div class="grid2">
-    <div class="mini"><div class="mk">Economic gate</div><p>Can we acquire and serve them at a ratio that works? A segment that fits perfectly but cannot be reached profitably is not an ICP.</p></div>
-    <div class="mini"><div class="mk">Delivery gate</div><p>Can we actually get them a result with what we have today? Selling to someone we cannot make successful buys us a refund and a bad reference.</p></div>
+    <div class="mini"><div class="mk">Who uses it</div><p>The agent. Cares about saving time today.</p></div>
+    <div class="mini"><div class="mk">Who pays</div><p>The owner or MD. Signs the Agency plan.</p></div>
+    <div class="mini"><div class="mk">How many exist</div><p>Roughly 1,000 brokerages in Dubai. We can reach all of them.</p></div>
+    <div class="mini"><div class="mk">What they pay</div><p>AED 199 per agent, or AED 299 per seat on the Agency plan.</p></div>
   </div>
+  <div class="note">The rest of this page explains how we got to that sentence, and how you would build the same thing for a new product.</div>
+</div>
 
-  <div class="block-k build-k">Who to borrow from</div>
-  <div class="tblwrap">
-    <table class="tbl">
-      <tr><th>Thinker</th><th>What we take</th></tr>
-      <tr><td><b>Geoffrey Moore</b><br><span style="color:var(--muted);font-size:13px">Crossing the Chasm</span></td><td>The narrowing discipline. Pick one beachhead where buyers reference each other, have a reason to buy now, and can be delivered a complete result.</td></tr>
-      <tr><td><b>April Dunford</b><br><span style="color:var(--muted);font-size:13px">Obviously Awesome</span></td><td>The ICP is the output of positioning, not the input. List the alternatives, then what we do differently, then who cares disproportionately about that difference.</td></tr>
-      <tr><td><b>Bob Moesta / Clayton Christensen</b><br><span style="color:var(--muted);font-size:13px">Jobs to be Done</span></td><td>Define the buyer by the struggling moment. The forces that push someone to switch are the same forces we detect as signals.</td></tr>
-      <tr><td><b>Mark Roberge</b><br><span style="color:var(--muted);font-size:13px">The Sales Acceleration Formula</span></td><td>Once there is volume, score past customers on attributes and keep the ones that correlate with retention, not with closing. Data beats opinion.</td></tr>
-    </table>
-  </div>
-
-  <div class="block-k build-k">The three boxes</div>
-  <p>Every ICP gets written in exactly this form. Nothing crosses between boxes.</p>
-  <div class="tblwrap">
-    <table class="tbl">
-      <tr><th>Box</th><th>What belongs in it</th><th>Used by</th></tr>
-      <tr><td><b>1. Searchable</b></td><td>Attributes a tool can filter on. Licence type, headcount, geography, listing count, job titles present.</td><td>The list build</td></tr>
-      <tr><td><b>2. Checkable</b></td><td>Attributes verified per record after the list exists, by AI or a human.</td><td>Qualification and scoring</td></tr>
-      <tr><td><b>3. Message</b></td><td>The pain and the belief. Never a filter, never used to build a list.</td><td>The outreach angle</td></tr>
-    </table>
-  </div>
-  <div class="warn"><b>The test:</b> read every line of Box 1 and ask "could I type this into a data tool right now?" If the answer is no, it belongs in Box 2 or Box 3.</div>
+<div class="pg-sec">
+  <div class="block-k why-k">Part 1</div>
+  <h3>What an ICP is</h3>
+  <p>An <span class="term">ICP<span class="tip">Ideal Customer Profile. A description of the customer most likely to buy, stay, and get a result from what we sell.</span></span> is a description of the customer most likely to buy, stay, and get a result.</p>
+  <p>It is not a list of companies we would like to have. It is a filter that decides who we contact and who we ignore.</p>
+  <div class="block-k why-k">Why it matters to you</div>
+  <p class="motiv">Cold outreach only works when the message sounds written for that person. You cannot write that message to everyone. A tight ICP is what makes a specific message possible, which is what makes replies possible. Without one, every email sounds generic and nothing lands.</p>
+  <div class="block-k build-k">The one mistake to avoid</div>
+  <p>Writing an ICP that no tool can search.</p>
+  <p>"Ambitious companies frustrated with their lead flow" sounds good and is useless. Nobody can type it into a database. It is a <b>message</b>, not a filter, and it belongs in a different place. More on that in Part 3.</p>
 </div>
 
 <div class="pg-sec">
   <div class="block-k why-k">Part 2</div>
-  <h3>The product: Murshid</h3>
-  <p class="pg-lead">Murshid (مرشد, Arabic for "the guide") is Autometa's product for Dubai and UAE property agents. Everything below is the ICP for this product specifically.</p>
-  <p>A project map and database with an intelligence layer that matches the right investor to the right property, captures WhatsApp leads, and drives follow-up. Pricing runs a free tier, Pro at roughly AED 199 per month for an individual agent, and an Agency plan at roughly AED 299 per seat with a blended target of AED 240 per paying seat.</p>
-  <div class="note">Murshid is what a brokerage buys. <b>MCA is how we find them.</b> The two are different systems pointed at the same market, and the ICP below is what connects them.</div>
+  <h3>Building an ICP with no customers</h3>
+  <p class="pg-lead">Most guides say "look at your best customers and find the pattern." That does not help when the product is new and nobody has bought it yet. This is our situation with Murshid.</p>
+
+  <div class="block-k why-k">The reframe</div>
+  <p class="motiv">With no customers, you cannot discover your ICP. Nobody can. What you can do is make two or three deliberate bets and design the outreach so it tells you which bet was right within a few months. The first ICP is a hypothesis, not a fact.</p>
+
+  <div class="block-k build-k">The five steps</div>
+  <ul class="steps">
+    <li><b>Use whatever adjacent evidence exists.</b><br>Past clients from unrelated work still tell you something: which industries you understand, where you have contacts, who would take your call tomorrow. That is where you have an edge, and an edge beats a market you picked because it sounded big.</li>
+    <li><b>Interview people who bought the alternative.</b><br>You do not need your own customers. Find companies that recently hired someone, signed an agency, or bought a tool to fix this problem. They bought what we sell, just from someone else. Ask what was happening the week they decided to spend that money.</li>
+    <li><b>Choose candidates on three tests.</b><br>Do we have an edge there. Can they afford us. Do they already believe in the category, or would we be teaching them from scratch.</li>
+    <li><b>Write each candidate as a hypothesis</b> in the three boxes from Part 3. Not as a belief. As something we intend to test.</li>
+    <li><b>Run two or three in parallel at equal volume</b>, then kill the losers. Whichever group replies, books and buys is the real ICP. That is when you write the proper version.</li>
+  </ul>
+
+  <div class="block-k build-k">The two gates every candidate must pass</div>
+  <div class="grid2">
+    <div class="mini"><div class="mk">Can we afford to reach them</div><p>A perfect fit we cannot acquire profitably is not an ICP.</p></div>
+    <div class="mini"><div class="mk">Can we get them a result</div><p>Selling to someone we cannot make successful buys a refund and a bad reference.</p></div>
+  </div>
+
+  <div class="block-k build-k">The practical test</div>
+  <p class="motiv">Before committing to a market, try to name 100 real companies in it by Friday. Not estimate. Actually list them, with a website and a named decision maker. If you cannot fill the list, the market is too small or the data is not there, and that is your answer before you have spent anything.</p>
+
+  <div class="block-k build-k">Four ideas worth knowing</div>
+  <ul class="does">
+    <li><b>Start narrow.</b> Pick one segment small enough to dominate, where buyers talk to each other. <span class="muted">(Geoffrey Moore)</span></li>
+    <li><b>Your customer is whoever cares most about the thing you do better.</b> <span class="muted">(April Dunford)</span></li>
+    <li><b>Find the moment they got fed up, not their industry.</b> That moment is also the signal we watch for. <span class="muted">(Bob Moesta)</span></li>
+    <li><b>Once you have enough customers, let the data pick, not your opinion.</b> <span class="muted">(Mark Roberge)</span></li>
+  </ul>
 </div>
 
 <div class="pg-sec">
   <div class="block-k why-k">Part 3</div>
-  <h3>The candidates</h3>
-  <p class="pg-lead">Three plausible ideal customers exist for Murshid. They are not equally good, and only one is the beachhead.</p>
-  <div class="tblwrap">
-    <table class="tbl">
-      <tr><th>Candidate</th><th>Who</th><th>Verdict</th></tr>
-      <tr><td><b>A. The independent agent</b></td><td>A high-performing agent buying Pro out of their own commission, often <span class="term">off-plan<span class="tip">Property sold before it is built. Roughly three quarters of Dubai residential transactions, and the segment where project data and payment plans matter most.</span></span> focused</td><td><b>The wedge.</b> Self-serve, no permission needed, seeds the account</td></tr>
-      <tr><td><b>B. The mid-size brokerage</b></td><td>15 to 60 agents, RERA licensed, Dubai, owner or MD signs</td><td><b>The revenue.</b> Where the Agency plan and the real contract value sit</td></tr>
-      <tr><td><b>C. The large brokerage</b></td><td>60 to 200+ agents, often with in-house systems</td><td><b>Later.</b> Big seat counts, slow cycles, different sale. Good for logos, wrong for a beachhead</td></tr>
-    </table>
+  <h3>The three boxes</h3>
+  <p class="pg-lead">This is the format. Every ICP we write goes in these three boxes, and nothing crosses between them.</p>
+  <div class="grid2">
+    <div class="mini"><div class="mk">Box 1 · Searchable</div><p>Things a tool can filter on. Licence, headcount, location, listing count, job title.<br><b>Used to build the list.</b></p></div>
+    <div class="mini"><div class="mk">Box 2 · Checkable</div><p>Things a person or AI verifies after the list exists.<br><b>Used to qualify and score.</b></p></div>
   </div>
-  <p>A and B are not competing options. They are the two halves of one motion: the agent adopts, the brokerage buys.</p>
+  <div class="mini" style="margin-top:14px"><div class="mk">Box 3 · Message</div><p>The pain and the belief. Never a filter. Never used to build a list.<br><b>Used to write the outreach.</b></p></div>
+  <div class="warn"><b>The test:</b> read every line in Box 1 and ask "could I type this into a data tool right now?" If not, it belongs in Box 2 or Box 3.</div>
 </div>
 
 <div class="pg-sec">
   <div class="block-k why-k">Part 4</div>
-  <h3>The chosen ICP, in three boxes</h3>
-  <p class="pg-lead">One sentence: <b>an off-plan focused agent selling to overseas investors, working at a Dubai brokerage of 15 to 60 agents.</b> That single line contains both the user and the buyer.</p>
-
-  <div class="block-k build-k">Box 1 · Searchable, this builds the list</div>
-  <div class="tblwrap">
-    <table class="tbl">
-      <tr><th>Attribute</th><th>Target</th><th>Where it is found</th></tr>
-      <tr><td>Licence</td><td>RERA registered real estate brokerage</td><td>DLD / RERA broker register</td></tr>
-      <tr><td>Location</td><td>Dubai first, then Abu Dhabi and Sharjah</td><td>Register, Google Maps</td></tr>
-      <tr><td>Agent count</td><td>15 to 60</td><td>Portal agency pages, website team page, LinkedIn headcount</td></tr>
-      <tr><td>Live listings</td><td>30 or more active</td><td>Bayut, Property Finder, Dubizzle</td></tr>
-      <tr><td>Inventory mix</td><td>Off-plan present, ideally dominant</td><td>Portal listing categories</td></tr>
-      <tr><td>Trading age</td><td>Two years or more</td><td>Licence record</td></tr>
-      <tr><td>Web presence</td><td>Own site with enquiry form or WhatsApp button</td><td>Site crawl</td></tr>
-      <tr><td>Decision maker</td><td>Founder, MD, CEO, Head of Sales or Operations Manager identifiable</td><td>LinkedIn, site, register</td></tr>
-    </table>
-  </div>
-
-  <div class="block-k build-k">Box 2 · Checkable, this qualifies and scores</div>
-  <ul class="does">
-    <li><b>Response time to a test enquiry.</b> The single highest-value field we hold. See the signal note below.</li>
-    <li>Are they paying for portal visibility, visible from featured listing volume?</li>
-    <li>Which CRM they run, if any, and whether agents actually use it or work from personal WhatsApp.</li>
-    <li>One decision maker, or a committee?</li>
-    <li>Is there an ops or marketing person who can drive adoption, or only agents?</li>
-    <li>Are agents salaried, commission-only, or mixed? Pure commission teams adopt tools very differently.</li>
-    <li>Do their buyers span multiple countries and languages?</li>
-    <li>Off-plan, resale or leasing weighting.</li>
-  </ul>
-
-  <div class="block-k build-k">Box 3 · Message, never a filter</div>
-  <div class="chips">
-    <span class="chip">You paid for that lead twice, once in portal spend and again in the deal that never closed</span>
-    <span class="chip">Your buyer got an answer from DLD at midnight and waited for you until 10am</span>
-    <span class="chip">Your deal history is on your agents' personal phones, on numbers you don't own</span>
-    <span class="chip">Cold calling just got expensive. Converting what you already have did not</span>
-  </div>
-
-  <div class="block-k build-k">The two people</div>
-  <div class="grid2">
-    <div class="mini"><div class="mk">The buyer</div><p>Owner or MD. Cares about deals closed, agent productivity, and whether the money comes back. Signs the Agency plan.</p></div>
-    <div class="mini"><div class="mk">The user</div><p>The agent. Cares only about whether it saves them time today. Has no budget and no obligation to use it.</p></div>
-  </div>
-  <div class="warn"><b>If the user does not adopt, the buyer churns.</b> This is exactly how Dubai brokerages ended up paying monthly for CRMs their agents stopped opening. Build for the agent, sell to the owner.</div>
+  <h3>The product we are selling</h3>
+  <p>Murshid (مرشد, Arabic for "the guide") is Autometa's product for Dubai property agents.</p>
+  <p>A project map and database, an intelligence layer that matches the right investor to the right property, WhatsApp lead capture, and follow-up.</p>
+  <div class="note">Murshid is what a brokerage buys. <b>MCA is how we find them.</b> Two different systems, same market.</div>
 </div>
 
 <div class="pg-sec">
   <div class="block-k why-k">Part 5</div>
-  <h3>Why this ICP and not another</h3>
-  <ul class="does">
-    <li><b>Off-plan is where the volume is.</b> Roughly three quarters of Dubai residential transactions are off-plan, and that is precisely the segment where project data, payment plans and commission-aware ranking carry weight.</li>
-    <li><b>Overseas investors create the pain Murshid solves.</b> Enquiries arrive overnight from London, Mumbai, Riyadh and Singapore, in several languages, while the agent is asleep. That is the WhatsApp capture and follow-up problem stated exactly.</li>
-    <li><b>15 to 60 agents is the affordable middle.</b> Big enough that a seat contract is real money, small enough that one person decides and the deal closes in weeks not quarters.</li>
-    <li><b>The wedge and the revenue share one list.</b> Individual agents at these firms can self-serve at AED 199 without permission, and every one of them is a signal pointing at an Agency deal.</li>
-    <li><b>The competitor gap sits here.</b> The catalog and map are commodity. Matching plus honest reporting plus WhatsApp capture, aimed at overseas off-plan investors, is the narrower lane.</li>
-    <li><b>The whole market is roughly a thousand brokerages.</b> Small enough that MCA can contact every single one inside a year. Very few companies can say that about their market.</li>
-  </ul>
-
-  <div class="block-k build-k">Excluded for now</div>
-  <div class="chips">
-    <span class="chip no">Under 15 agents for the Agency plan</span>
-    <span class="chip no">Licensed under one year</span>
-    <span class="chip no">No live listings</span>
-    <span class="chip no">Leasing-only agencies</span>
-    <span class="chip no">Pure resale with no off-plan</span>
-    <span class="chip no">Large firms with in-house systems</span>
-    <span class="chip no">Other proptech and automation companies</span>
+  <h3>The three candidates we considered</h3>
+  <div class="tblwrap">
+    <table class="tbl">
+      <tr><th>Candidate</th><th>Verdict</th></tr>
+      <tr><td><b>The independent agent</b><br><span style="color:var(--muted);font-size:13px">Buys Pro from their own commission, usually <span class="term">off-plan<span class="tip">Property sold before it is built. Around three quarters of Dubai residential transactions.</span></span> focused</span></td><td><b>The wedge.</b> Self-serve, no permission needed</td></tr>
+      <tr><td><b>The mid-size brokerage</b><br><span style="color:var(--muted);font-size:13px">15 to 60 agents, owner or MD signs</span></td><td><b>The revenue.</b> Where the real contract value sits</td></tr>
+      <tr><td><b>The large brokerage</b><br><span style="color:var(--muted);font-size:13px">60 to 200+ agents, often build in-house</span></td><td><b>Later.</b> Slow, different sale, good for logos</td></tr>
+    </table>
   </div>
-  <p class="muted">The full treatment lives on the Negative ICP page.</p>
-
-  <div class="block-k build-k">What would prove this wrong</div>
-  <p>Review after 500 contacted accounts or one quarter, whichever comes first. The ICP is wrong if agents sign up for the free tier but never return in week two, if brokerages book meetings but stall on the seat count, or if the firms that convert turn out to be resale rather than off-plan.</p>
+  <p>The first two are not competing options. They are two halves of one motion: <b>the agent adopts, the brokerage buys.</b></p>
 </div>
 
 <div class="pg-sec">
   <div class="block-k why-k">Part 6</div>
-  <h3>The stack for finding these profiles</h3>
-  <p class="pg-lead">One warning first, because it changes the whole build.</p>
-  <div class="warn"><b>The standard B2B stack is weak here.</b> Apollo, ZoomInfo and similar databases have thin coverage of small private UAE companies. A Dubai brokerage with 30 agents is often almost invisible to them. The authoritative data lives in the licence register and on the property portals, not in a sales database. Build the waterfall around those and treat the global providers as a fallback, not the first call.</p>
+  <h3>Our ICP, written properly</h3>
 
-  <div class="block-k build-k">Layer 1 · Source of truth</div>
-  <ul class="does">
-    <li>DLD / RERA licensed broker register, the authoritative list of every brokerage in Dubai.</li>
-    <li>Dubai REST and DLD open data for licence status and transaction context.</li>
-    <li>Bayut, Property Finder and Dubizzle agency directories for agent counts, live listing counts and public contact numbers.</li>
-    <li>Google Maps and Places for offices, reviews and phone numbers.</li>
-    <li>LinkedIn for decision makers and headcount. Instagram matters too, since many Dubai brokerages are Instagram-first.</li>
-  </ul>
-
-  <div class="block-k build-k">Layer 2 to 6 · The pipeline</div>
+  <div class="block-k build-k">Box 1 · Searchable</div>
   <div class="tblwrap">
     <table class="tbl">
-      <tr><th>Layer</th><th>Job</th><th>Options</th></tr>
-      <tr><td><b>Collection</b></td><td>Pull the source lists into structured rows</td><td>Apify (ready-made actors for Maps, LinkedIn, Instagram), Firecrawl, Browserbase or Playwright, Bright Data</td></tr>
-      <tr><td><b>Enrichment</b></td><td><span class="term">Waterfall<span class="tip">Ask provider A for the missing email or phone; if blank, ask B, then C, until the gap is filled, instead of dropping the record.</span></span> the missing emails, phones and profiles</td><td>Clay as the orchestrator, with BetterContact, Prospeo, Findymail, Dropcontact and Datagma underneath. Cognism and Lusha for EMEA coverage. Apollo as a fallback</td></tr>
-      <tr><td><b>Verification</b></td><td>Prove the address exists before it enters a send list</td><td>MillionVerifier, NeverBounce, ZeroBounce, Bouncer</td></tr>
-      <tr><td><b>AI qualification</b></td><td>Read the site, classify off-plan vs resale, size the team, judge fit</td><td>Claude via API for classification and research, Claygent inside Clay, Exa for semantic company search, Perplexity API for open research</td></tr>
-      <tr><td><b>Orchestration</b></td><td>Run it on a schedule, handle retries</td><td>n8n as the backbone, Make or custom scripts as alternatives</td></tr>
-      <tr><td><b>Storage</b></td><td>One record per account, deduplicated</td><td>Supabase or Postgres. Airtable or Sheets for version one only</td></tr>
+      <tr><th>Attribute</th><th>Target</th><th>Found where</th></tr>
+      <tr><td>Licence</td><td>RERA registered brokerage</td><td>DLD broker register</td></tr>
+      <tr><td>Location</td><td>Dubai first</td><td>Register, Google Maps</td></tr>
+      <tr><td>Agent count</td><td>15 to 60</td><td>Portal agency pages, LinkedIn</td></tr>
+      <tr><td>Live listings</td><td>30 or more</td><td>Bayut, Property Finder</td></tr>
+      <tr><td>Inventory</td><td>Off-plan present</td><td>Portal categories</td></tr>
+      <tr><td>Trading age</td><td>2 years or more</td><td>Licence record</td></tr>
+      <tr><td>Website</td><td>Has an enquiry form or WhatsApp button</td><td>Site check</td></tr>
+      <tr><td>Contact</td><td>Founder, MD or Head of Sales findable</td><td>LinkedIn, site</td></tr>
     </table>
   </div>
 
-  <div class="block-k build-k">The field nobody else has</div>
-  <p class="motiv">Send one short enquiry to every brokerage as a buyer and record how long the reply takes. That number is simultaneously the strongest qualification field in Box 2 and the most persuasive opening line in Box 3. Almost no market is small enough to do this across every target account. Ours is. Keep each enquiry to a single short message so we are not burning real agent time, and be straight about what we did when we follow up.</p>
-
-  <div class="block-k build-k">Signals worth watching, ranked</div>
+  <div class="block-k build-k">Box 2 · Checkable</div>
   <ul class="does">
-    <li>Slow or missing response to a test enquiry.</li>
-    <li>An agent from a target brokerage signing up for the free tier. For a product, usage beats every external signal money can buy.</li>
-    <li>Hiring agents, visible on LinkedIn and portal job boards.</li>
+    <li><b>How fast they answer a test enquiry.</b> Our most valuable field. See Part 8.</li>
+    <li>Are they paying for portal visibility?</li>
+    <li>What CRM do they use, and do agents actually open it?</li>
+    <li>One decision maker, or a committee?</li>
+    <li>Is there an ops or marketing person who can drive adoption?</li>
+    <li>Are agents salaried or commission-only?</li>
+    <li>Do their buyers span several countries and languages?</li>
+  </ul>
+
+  <div class="block-k build-k">Box 3 · Message</div>
+  <div class="chips">
+    <span class="chip">You paid for that lead twice</span>
+    <span class="chip">Your buyer waited until 10am for an answer</span>
+    <span class="chip">Your deal history is on your agents' personal phones</span>
+    <span class="chip">Cold calling got expensive. Converting what you have did not</span>
+  </div>
+
+  <div class="warn"><b>Remember the split.</b> The agent uses it, the owner pays for it. If the agent does not adopt, the owner churns. That is exactly how Dubai brokerages ended up paying monthly for CRMs nobody opens.</div>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 7</div>
+  <h3>Why we chose this one</h3>
+  <ul class="does">
+    <li><b>Off-plan is where the volume is.</b> Around three quarters of Dubai residential transactions, and the segment where project data matters most.</li>
+    <li><b>Overseas investors create the exact pain we solve.</b> Enquiries arrive overnight, in several languages, while the agent is asleep.</li>
+    <li><b>15 to 60 agents is the affordable middle.</b> Big enough to be real money, small enough that one person decides.</li>
+    <li><b>The wedge and the revenue share one list.</b> Every agent who signs up free is a signal pointing at an Agency deal.</li>
+    <li><b>The market is small enough to finish.</b> Around 1,000 brokerages. We can contact every one inside a year.</li>
+  </ul>
+
+  <div class="block-k build-k">Who we skip</div>
+  <div class="chips">
+    <span class="chip no">Under 15 agents</span>
+    <span class="chip no">Licensed under a year</span>
+    <span class="chip no">No live listings</span>
+    <span class="chip no">Leasing only</span>
+    <span class="chip no">Resale only</span>
+    <span class="chip no">Large firms with in-house systems</span>
+    <span class="chip no">Other proptech companies</span>
+  </div>
+
+  <div class="block-k build-k">How we will know if we are wrong</div>
+  <p>We review after 500 contacted accounts, or one quarter, whichever comes first. The ICP is wrong if agents sign up free but never come back in week two, if brokerages book meetings but stall on seat count, or if the firms that actually convert turn out to be resale rather than off-plan.</p>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 8</div>
+  <h3>How we find them</h3>
+
+  <div class="warn"><b>Read this first.</b> The usual sales databases are weak here. Apollo and ZoomInfo barely cover small private UAE companies. A 30 agent Dubai brokerage is close to invisible to them. Our best data is in the licence register and on the property portals, and it is free.</div>
+
+  <div class="block-k build-k">Step 1 · Get the full list</div>
+  <ul class="does">
+    <li>DLD / RERA broker register. Every licensed brokerage in Dubai.</li>
+    <li>Bayut and Property Finder agency pages. Agent counts, listing counts, phone numbers.</li>
+    <li>Google Maps for offices. LinkedIn and Instagram for the decision makers.</li>
+  </ul>
+
+  <div class="block-k build-k">Step 2 · Fill the gaps</div>
+  <div class="tblwrap">
+    <table class="tbl">
+      <tr><th>Job</th><th>Tools</th></tr>
+      <tr><td>Scrape the sources</td><td>Apify, Firecrawl, Bright Data</td></tr>
+      <tr><td><span class="term">Waterfall<span class="tip">Ask provider A for a missing email; if blank, ask B, then C, instead of dropping the record.</span></span> the missing emails and phones</td><td>Clay, with BetterContact, Prospeo, Findymail underneath. Cognism for EMEA</td></tr>
+      <tr><td>Verify emails before sending</td><td>MillionVerifier, NeverBounce, ZeroBounce</td></tr>
+      <tr><td>Read sites and judge fit</td><td>Claude via API, Claygent inside Clay, Exa for search</td></tr>
+      <tr><td>Run it on a schedule</td><td>n8n</td></tr>
+      <tr><td>Store one record per account</td><td>Supabase or Postgres</td></tr>
+    </table>
+  </div>
+
+  <div class="block-k build-k">Step 3 · The field nobody else has</div>
+  <p class="motiv">Send one short enquiry to every brokerage as a buyer, and record how long they take to reply. That single number is both our best qualification score and our best opening line. Almost no market is small enough to do this across every target. Ours is. Keep it to one short message so we are not wasting agent time, and be straight about what we did when we follow up.</p>
+
+  <div class="block-k build-k">Signals, strongest first</div>
+  <ul class="does">
+    <li>Slow or no reply to our test enquiry.</li>
+    <li>An agent from a target brokerage signing up free. Usage beats any signal money can buy.</li>
+    <li>Hiring agents.</li>
     <li>Listing count climbing month on month.</li>
-    <li>A new Managing Director or Head of Sales. New leadership buys systems.</li>
-    <li>A new developer partnership announced.</li>
-    <li>Heavy featured-listing spend on the portals.</li>
+    <li>New MD or Head of Sales. New leadership buys systems.</li>
+    <li>New developer partnership announced.</li>
     <li>Visited our site or engaged with our content.</li>
   </ul>
 </div>
