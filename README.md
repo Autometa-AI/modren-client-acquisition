@@ -124,7 +124,7 @@ Classes available for page bodies, all matching the existing style system:
 
 * [x] Stage 1 — Defining an ICP — **done.** Six parts: how an ICP is chosen (7 rules, 2 gates, the 3 boxes, the thinkers), Murshid as the product, the 3 candidate ICPs, the chosen ICP in 3 boxes, why it was chosen, and the discovery stack.
 * [x] Stage 1 — Negative ICP / Exclusions — **done.** Four buckets (never / not now / free tier only / never cold call), why it is not the inverse of the ICP, the four reasons to exclude, both lists, the channel rule, and how the suppression list is enforced in the system.
-* [ ] Stage 1 — Signal Identification
+* [x] Stage 1 — Signal Identification — **done.** Four tiers, the reframe that product usage outranks every bought signal, manufacturing signals in a small market, the signal list, shelf life and refresh rates, sources, signal-to-first-line, and what to build first.
 * [ ] Stage 2 — Building the database
 * [ ] Stage 2 — Waterfall Enrichment
 * [ ] Stage 2 — Email Verification
@@ -172,10 +172,19 @@ Both filled pages are written as **training docs for a sales head**, not referen
 * Tables only for genuinely tabular data with short cells. Use `.mini` cards for anything scannable.
 * Keep total page length near 1,000 to 1,600 words.
 
+### Signal decisions worth carrying forward
+
+* **Product usage outranks every bought signal.** Two or more agents from one brokerage on the free tool is the strongest buying signal in the system, and it costs nothing to collect.
+* **Our market is small enough to manufacture signals.** ~1,000 accounts means we can run a test enquiry against every one of them rather than waiting for signals to appear. No large-market competitor can do this.
+* **Build order:** test-enquiry response time first (works before the product ships, covers 100% of the market), then free-tool signups matched to accounts. Everything else is phase two.
+* **Email opens are not a signal.** Scanners and privacy features open mail automatically. Do not score on them.
+* Stage 1 is now complete. All three deep-dive pages are written.
+
 ### Up next
 
-* Signal Identification, adapted for a product motion rather than a service sale
 * Tool guides for Instantly.ai and Zoko.io
+* Stage 2 pages (database, waterfall enrichment, email verification)
+* Note: Zoko is single-tenant and does not fit a multi-customer product. If the WhatsApp layer becomes part of a SaaS, evaluate multi-tenant providers with Meta Embedded Signup instead.
 
 ## 7. Repo & folder structure
 

@@ -645,7 +645,138 @@ const STAGES = [
   </ul>
 </div>
 `},
-      {id:"signal-id", label:"Signal Identification", kind:"deep"},
+      {id:"signal-id", label:"Signal Identification", kind:"deep",
+       intro:"A training page. What counts as a signal, why product usage beats everything else, and the two signals we start with.",
+       body:`
+<div class="pg-sec">
+  <div class="block-k why-k">Start here</div>
+  <h3>Four tiers of signal</h3>
+  <p class="pg-lead">A <span class="term">signal<span class="tip">An event that says now is a good time to talk to this company. Not who they are, but what just happened to them.</span></span> is not who a company is. It is what just happened to them.</p>
+  <div class="grid2">
+    <div class="mini"><div class="mk">Tier 1 · They touched us</div><p>An agent signs up for the free tool. Someone replies, or reads the pricing page. Strongest signal we will ever get.</p></div>
+    <div class="mini"><div class="mk">Tier 2 · We generated it</div><p>We enquired as a buyer and timed the reply. Available on every account in the market.</p></div>
+    <div class="mini"><div class="mk">Tier 3 · Public events</div><p>Hiring, listing counts, a new Head of Sales, a developer partnership.</p></div>
+    <div class="mini"><div class="mk">Tier 4 · Ignore</div><p>Email opens, follower counts, general industry news. Noise dressed as data.</p></div>
+  </div>
+  <div class="warn"><b>The rule that governs all of it:</b> a signal prioritises inside the ICP. It never overrides it. An exciting signal on a brokerage that fails the ICP is still a no.</div>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 1</div>
+  <h3>Why signals exist</h3>
+  <p>The ICP tells us <b>who</b> to contact. The signal tells us <b>when</b>, and gives us something specific to say.</p>
+  <p>Without one, every message opens with a guess. With one, it opens with an observation about their business that happens to be true this week.</p>
+  <div class="block-k why-k">What happens if we skip this</div>
+  <p class="motiv">We contact a thousand brokerages in the same month with the same message, get a low reply rate, and then have no way to work out whether the problem was the list, the message or the timing. Signals are what let us stagger the market and learn from it.</p>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 2</div>
+  <h3>For a product, usage beats everything</h3>
+  <p class="pg-lead">This is the biggest change from how outbound is normally taught.</p>
+  <p>Standard advice puts funding rounds and hiring at the top of the signal list. Those are educated guesses about intent.</p>
+  <p class="motiv">An agent from a target brokerage signing up for our free tool is not a guess. It is a member of that account raising their hand. No funding announcement or hiring post comes close, and it costs us nothing to collect because it happens inside our own product.</p>
+  <div class="block-k build-k">What this means in practice</div>
+  <ul class="does">
+    <li>Every free signup gets its email domain matched back to a brokerage on our target list.</li>
+    <li><b>One agent signed up</b> moves that account up the queue.</li>
+    <li><b>Two or more agents from the same brokerage</b> is the strongest buying signal in the whole system. A human reaches the owner that week.</li>
+    <li>The message writes itself: their team is already using it.</li>
+  </ul>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 3</div>
+  <h3>Our market is small enough to manufacture signals</h3>
+  <p>Most companies wait for signals to appear because their market is too big to inspect. With a hundred thousand target accounts you have no choice.</p>
+  <p>We have about a thousand. We can go and generate the observation ourselves.</p>
+  <p class="motiv">Send one short enquiry to every brokerage as a buyer, and record how long they take to reply. That single number is available on 100% of the market, is specific to each account, and is the most persuasive opening line we have. Almost no company can do this. We can, and it is the closest thing we have to an unfair advantage.</p>
+  <div class="note">Keep it to one short message per firm so we are not wasting real agent time, and be straight about what we did when we follow up. The whole point is to tell them.</div>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 4</div>
+  <h3>The signals we watch</h3>
+  <div class="tblwrap">
+    <table class="tbl">
+      <tr><th>Tier</th><th>Signal</th><th>What it tells us</th></tr>
+      <tr><td><b>1</b></td><td>Two or more agents on the free tool</td><td>The account is ready. Call the owner</td></tr>
+      <tr><td><b>1</b></td><td>One agent signs up</td><td>Warm account, move it up the queue</td></tr>
+      <tr><td><b>1</b></td><td>Pricing page visit</td><td>Someone is evaluating</td></tr>
+      <tr><td><b>1</b></td><td>Commented on our content</td><td>They know who we are. Comments count, likes do not</td></tr>
+      <tr><td><b>1</b></td><td>Replied to us before, even a no</td><td>A real person on a real address</td></tr>
+      <tr><td><b>2</b></td><td>Slow or no reply to our test enquiry</td><td>The exact problem we sell against</td></tr>
+      <tr><td><b>2</b></td><td>Response time worse than last check</td><td>Something broke. Good timing</td></tr>
+      <tr><td><b>2</b></td><td>No enquiry form or WhatsApp on their site</td><td>Leads are leaking before they even arrive</td></tr>
+      <tr><td><b>3</b></td><td>Hiring agents</td><td>More agents means more leads to lose</td></tr>
+      <tr><td><b>3</b></td><td>Listing count climbing</td><td>More inventory, same reply speed</td></tr>
+      <tr><td><b>3</b></td><td>New MD or Head of Sales</td><td>New leadership buys systems in the first 90 days</td></tr>
+      <tr><td><b>3</b></td><td>New developer partnership</td><td>New inventory, new pressure to sell it</td></tr>
+      <tr><td><b>3</b></td><td>Paying for <span class="term">featured listings<span class="tip">Paid promotion on Bayut or Property Finder that pushes a listing to the top. Proof they already spend money to buy leads.</span></span></td><td>They already pay for leads. Budget exists</td></tr>
+      <tr><td><b>3</b></td><td>New office, rebrand, or new website</td><td>Investing in growth right now</td></tr>
+      <tr><td><b>4</b></td><td>Email opens</td><td>Nearly worthless. Security scanners and privacy features open mail automatically</td></tr>
+      <tr><td><b>4</b></td><td>Follower growth, industry news</td><td>Interesting, not actionable</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 5</div>
+  <h3>Signals go stale</h3>
+  <p class="pg-lead">A signal acted on late is worse than no signal, because it makes us look like we were not paying attention.</p>
+  <div class="tblwrap">
+    <table class="tbl">
+      <tr><th>Signal</th><th>Act within</th><th>Re-check</th></tr>
+      <tr><td>Free tool signup</td><td>24 to 48 hours</td><td>Real time</td></tr>
+      <tr><td>Pricing page visit</td><td>48 hours</td><td>Real time</td></tr>
+      <tr><td>New MD or Head of Sales</td><td>30 days</td><td>Weekly</td></tr>
+      <tr><td>Hiring post</td><td>14 days</td><td>Weekly</td></tr>
+      <tr><td>Listing count change</td><td>30 days</td><td>Monthly</td></tr>
+      <tr><td>Test enquiry response time</td><td>No rush, it stays true</td><td>Quarterly</td></tr>
+    </table>
+  </div>
+  <div class="warn">Scores decay too. A lead that went quiet three months ago should not still read as hot. That logic lives in the Scoring Model page.</div>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 6</div>
+  <h3>Where we watch</h3>
+  <div class="grid2">
+    <div class="mini"><div class="mk">Our own systems</div><p>Product database for signups and usage. Website analytics for pricing page visits. The CRM for past replies.</p></div>
+    <div class="mini"><div class="mk">The portals</div><p>Bayut, Property Finder and Dubizzle for listing counts, agent counts and featured placements.</p></div>
+    <div class="mini"><div class="mk">LinkedIn and Instagram</div><p>People changes, hiring posts, partnership announcements. Many Dubai brokerages announce on Instagram first.</p></div>
+    <div class="mini"><div class="mk">The register and the press</div><p>DLD and RERA for licence changes. News alerts for partnerships and expansions.</p></div>
+  </div>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 7</div>
+  <h3>Turning a signal into a first line</h3>
+  <p class="pg-lead">The signal is only useful if it changes what we say. Full treatment is on the Signal to Angle page, but this is the shape.</p>
+  <div class="tblwrap">
+    <table class="tbl">
+      <tr><th>Signal</th><th>The opening</th></tr>
+      <tr><td>Slow test reply</td><td>We messaged you as a buyer on Tuesday at 9pm. You replied 14 hours later</td></tr>
+      <tr><td>Two agents on the free tool</td><td>Two people on your team are already using this</td></tr>
+      <tr><td>Hiring agents</td><td>You are adding agents. More agents usually means more leads going quiet, not fewer</td></tr>
+      <tr><td>New Head of Sales</td><td>First 90 days. Here is what most people inherit and never find out about</td></tr>
+      <tr><td>Listing count jumped</td><td>Your inventory grew 40% this quarter. Did your reply time keep up</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 8</div>
+  <h3>What we build first</h3>
+  <p class="pg-lead">Do not build all of this. Two signals cover most of the value.</p>
+  <ul class="steps">
+    <li><b>Test enquiry response time.</b><br>Covers 100% of the market, works before the product is finished, and gives every single account a personalised opening line. Build this first.</li>
+    <li><b>Free tool signups matched to accounts.</b><br>Highest intent in the system. Needs the free tool live and the domain matching wired to the target list.</li>
+  </ul>
+  <p>Everything in Tier 3 is phase two. It adds precision, but it will not change the outcome until the first two are running.</p>
+  <div class="note"><b>How we will know it is working:</b> reply rate on signal-led messages against reply rate on plain ICP-only messages. If the signal is not lifting replies, we are watching the wrong thing. That comparison lives in the Measurement layer.</div>
+</div>
+`},
       {id:"tool-signals", label:"Signal / intent source", kind:"tool", tbd:true}
     ]
   },
