@@ -122,7 +122,7 @@ Classes available for page bodies, all matching the existing style system:
 
 ### Deep-dive pages to write
 
-* [ ] Stage 1 — Defining an ICP
+* [x] Stage 1 — Defining an ICP — **done.** Six parts: how an ICP is chosen (7 rules, 2 gates, the 3 boxes, the thinkers), Murshid as the product, the 3 candidate ICPs, the chosen ICP in 3 boxes, why it was chosen, and the discovery stack.
 * [ ] Stage 1 — Negative ICP / Exclusions
 * [ ] Stage 1 — Signal Identification
 * [ ] Stage 2 — Building the database
@@ -153,9 +153,20 @@ Classes available for page bodies, all matching the existing style system:
 * [ ] Calling / dialer, pick tool, then write guide
 * [ ] CRM, pick tool, then write guide
 
+### Settled decisions from the ICP session
+
+* **Beachhead:** Dubai real estate brokerages. Settled and already public (22 of 38 LinkedIn posts, plus a stated "we only work in Dubai real estate"). Do not reopen without new evidence.
+* **The three layers:** Murshid is the product sold to brokerages. MCA is the internal engine that finds them. MCA is sold to non-real-estate buyers only on inbound or referral, never advertised, never outbound.
+* **Murshid ICP:** an off-plan focused agent selling to overseas investors, at a Dubai brokerage of 15 to 60 agents. The agent is the user, the owner is the buyer, and if the user does not adopt, the buyer churns.
+* **Motion:** agent adopts a free wedge tool bottom-up, brokerage buys the Agency plan top-down. Product usage is the strongest signal we have.
+* **Pricing correction:** the monthly is defensible against their existing CRM spend; the large setup fee is what kills deals. Drop it to a small commitment fee credited back. First three clients priced near cost as design partners in exchange for documented results.
+* **Data reality:** Apollo and ZoomInfo have thin UAE SME coverage. Build the waterfall around the RERA broker register, the property portals, Google Maps and LinkedIn instead.
+
 ### Up next
 
-Abhi wants to start with **Defining an ICP** and the **tool guides**. Begin there.
+* Negative ICP / Exclusions
+* Signal Identification, adapted for a product motion rather than a service sale
+* Tool guides for Instantly.ai and Zoko.io
 
 ## 7. Repo & folder structure
 
