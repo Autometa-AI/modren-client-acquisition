@@ -510,7 +510,141 @@ const STAGES = [
   </ul>
 </div>
 `},
-      {id:"icp-negative", label:"Negative ICP / Exclusions", kind:"deep"},
+      {id:"icp-negative", label:"Negative ICP / Exclusions", kind:"deep",
+       intro:"A training page. Who we never contact, who we contact later, and how the system stops us making an expensive mistake.",
+       body:`
+<div class="pg-sec">
+  <div class="block-k why-k">Start here</div>
+  <h3>Four buckets, not one</h3>
+  <p class="pg-lead">A lead that fails the ICP does not automatically go in the bin. It goes in one of these.</p>
+  <div class="grid2">
+    <div class="mini"><div class="mk">Never contact</div><p>Permanent. Existing clients, partners, competitors, opt-outs, unlicensed firms.</p></div>
+    <div class="mini"><div class="mk">Not now</div><p>Good fit, wrong moment. Gets a revisit date, not a delete.</p></div>
+    <div class="mini"><div class="mk">Free tier only</div><p>Too small for the Agency plan, still a fine self-serve user.</p></div>
+    <div class="mini"><div class="mk">Never cold call</div><p>A channel rule that applies to everyone, regardless of fit.</p></div>
+  </div>
+  <div class="warn"><b>The one rule to remember:</b> exclude on evidence, defer on doubt. Our whole market is about 1,000 companies. Every permanent exclusion is expensive.</div>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 1</div>
+  <h3>What a negative ICP is</h3>
+  <p>The <span class="term">negative ICP<span class="tip">The never-contact list. Companies and people we deliberately keep out of outreach, whatever their apparent fit.</span></span> is the list of people we deliberately keep out of outreach.</p>
+  <p>Most teams never write one. They build a target list, run it, and find out the hard way.</p>
+
+  <div class="block-k why-k">What it protects</div>
+  <div class="grid2">
+    <div class="mini"><div class="mk">Money</div><p>Every enriched record costs us. A bad record costs the same as a good one and returns nothing.</p></div>
+    <div class="mini"><div class="mk">Reputation</div><p>Cold-pitching an existing client or a partner's brokerage is the kind of mistake people tell others about.</p></div>
+    <div class="mini"><div class="mk">Deliverability</div><p>Wrong-fit people mark us as spam. Enough of that and our email stops reaching anyone.</p></div>
+    <div class="mini"><div class="mk">Delivery</div><p>A bad-fit customer who signs is worse than one who does not. They churn loudly and eat support.</p></div>
+  </div>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 2</div>
+  <h3>It is not the opposite of the ICP</h3>
+  <p class="pg-lead">This is the part people get wrong, so read it twice.</p>
+  <p>Our ICP says 15 to 60 agents. Flipping that would exclude everyone under 15 and everyone over 60. That would throw away most of a market we can barely afford to shrink.</p>
+  <div class="tblwrap">
+    <table class="tbl">
+      <tr><th>Fails the ICP because</th><th>What it actually means</th></tr>
+      <tr><td>80 agents, too big</td><td><b>Not now.</b> Different sale, revisit when we have an enterprise motion</td></tr>
+      <tr><td>8 agents, too small</td><td><b>Free tier only.</b> Fine user, wrong plan. No Agency pitch</td></tr>
+      <tr><td>Based in Abu Dhabi</td><td><b>Not now.</b> After Dubai is saturated</td></tr>
+      <tr><td>Licence expired</td><td><b>Never.</b> This one is a genuine exclusion</td></tr>
+    </table>
+  </div>
+  <p class="motiv">A negative ICP is built from different evidence than the ICP. The ICP comes from who buys. The exclusions come from who churns, who costs us to serve, who we are not allowed to contact, and who we would be embarrassed to email.</p>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 3</div>
+  <h3>The four reasons to exclude someone</h3>
+  <ul class="steps">
+    <li><b>Relationship.</b><br>We already have a connection that outreach would damage. Clients, live deals, partners, opt-outs.</li>
+    <li><b>Fit.</b><br>They cannot get a result from the product, so selling to them creates a refund and a bad reference.</li>
+    <li><b>Strategy.</b><br>Competitors, or companies where contact creates a conflict.</li>
+    <li><b>Risk.</b><br>Legal, regulatory or deliverability exposure.</li>
+  </ul>
+  <p>Every entry on our list below sits in exactly one of these four, and the reason gets recorded with it. An exclusion with no recorded reason gets removed at the next review.</p>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 4</div>
+  <h3>Never contact</h3>
+  <div class="tblwrap">
+    <table class="tbl">
+      <tr><th>Who</th><th>Reason</th></tr>
+      <tr><td>Current customers, on any plan</td><td>Relationship</td></tr>
+      <tr><td>Anyone with a live deal in the pipeline</td><td>Relationship</td></tr>
+      <tr><td>Partner firms and any brokerage they introduce us to</td><td>Relationship</td></tr>
+      <tr><td>Anyone who has asked us to stop</td><td>Relationship, and legally required</td></tr>
+      <tr><td>Brokerages with an expired or suspended RERA licence</td><td>Risk</td></tr>
+      <tr><td>Firms under active regulatory action</td><td>Risk</td></tr>
+      <tr><td>Other proptech, real estate CRMs, and automation agencies</td><td>Strategy</td></tr>
+      <tr><td>The property portals themselves</td><td>Strategy. They are a partner or a competitor, never a cold prospect</td></tr>
+      <tr><td>Anyone who has marked us as spam</td><td>Risk</td></tr>
+    </table>
+  </div>
+  <div class="note"><b>Developers are not on this list, and not on the target list either.</b> They are a data and distribution partner for Murshid. They go through a relationship conversation, never a cold sequence.</div>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 5</div>
+  <h3>Not now, with a reason to come back</h3>
+  <p class="pg-lead">Every one of these keeps its record, keeps its data, and gets a revisit trigger.</p>
+  <div class="tblwrap">
+    <table class="tbl">
+      <tr><th>Who</th><th>Come back when</th></tr>
+      <tr><td>60+ agent brokerages</td><td>We have an enterprise motion and a reference customer</td></tr>
+      <tr><td>Under 15 agents</td><td>Never for the Agency plan. Free tier now, upgrade if they grow</td></tr>
+      <tr><td>Abu Dhabi and Sharjah</td><td>Dubai is saturated</td></tr>
+      <tr><td>Licensed under one year</td><td>They pass 12 months and have live listings</td></tr>
+      <tr><td>Leasing only, or resale with no off-plan</td><td>The product covers their inventory properly</td></tr>
+      <tr><td>No live listings</td><td>Listings appear on the portals</td></tr>
+      <tr><td>Said no to us before</td><td>10 days plus a fresh signal. See the Revival page</td></tr>
+    </table>
+  </div>
+  <div class="warn"><b>Do not delete these records.</b> A deleted company has to be found, enriched and researched again from scratch. A deferred one is already paid for.</div>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 6</div>
+  <h3>The channel rule</h3>
+  <p class="pg-lead">This one applies to everybody, including a perfect-fit account.</p>
+  <p class="motiv">We do not cold call, and we do not cold WhatsApp. Calls and WhatsApp happen only after the person has told us by email or WhatsApp that they are open to a conversation. Our cold channels are email and LinkedIn, and nothing else.</p>
+  <p>Two reasons. The UAE has telemarketing regulations with real penalties, and RERA has tightened the rules on unsolicited calling in this industry specifically. Beyond the legal exposure, we sell to an industry that is currently being punished for cold calling. Doing it ourselves would be a poor first impression.</p>
+  <div class="note">Verify the current regulations with a UAE adviser before any calling programme. This page states our policy, not legal advice.</div>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 7</div>
+  <h3>How the system enforces it</h3>
+  <p class="pg-lead">A list in someone's head is not an exclusion list. This has to live in the database.</p>
+  <ul class="steps">
+    <li><b>One suppression table, checked at send time.</b><br>Not at list-build time. A company can become a customer between the day we build the list and the day we send. Checking early is how people email their own clients.</li>
+    <li><b>Match on company and on domain, not just email.</b><br>People change addresses. The company stays the same.</li>
+    <li><b>Client and partner domains sync from the CRM automatically.</b><br>Nobody maintains this by hand. Hand-maintained lists go stale within a month.</li>
+    <li><b>Opt-outs are captured from replies automatically</b> and are permanent. They survive every re-import.</li>
+    <li><b>The do-not-contact flag survives a rebuild.</b><br>The most common failure in outbound is wiping the suppression list when the target list is rebuilt.</li>
+    <li><b>One person is one record.</b><br>Deduplication across email, phone and LinkedIn, so an exclusion on one channel excludes them everywhere.</li>
+  </ul>
+</div>
+
+<div class="pg-sec">
+  <div class="block-k why-k">Part 8</div>
+  <h3>The trap, and the review</h3>
+  <p class="motiv">Over-excluding is a real mistake, not a safe one. In a market of a thousand companies, every permanent exclusion is a percentage point of our total opportunity. Teams that feel clever adding rules can quietly cut their reachable market in half.</p>
+  <div class="block-k build-k">The review</div>
+  <ul class="does">
+    <li>Every exclusion carries a reason and a date. No reason, no exclusion.</li>
+    <li>Every "not now" carries a revisit trigger, so it comes back on its own.</li>
+    <li>The whole list is reviewed quarterly.</li>
+    <li>If the excluded pile is growing faster than the target pile, the rules are wrong, not the market.</li>
+  </ul>
+</div>
+`},
       {id:"signal-id", label:"Signal Identification", kind:"deep"},
       {id:"tool-signals", label:"Signal / intent source", kind:"tool", tbd:true}
     ]

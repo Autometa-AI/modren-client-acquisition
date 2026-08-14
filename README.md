@@ -123,7 +123,7 @@ Classes available for page bodies, all matching the existing style system:
 ### Deep-dive pages to write
 
 * [x] Stage 1 — Defining an ICP — **done.** Six parts: how an ICP is chosen (7 rules, 2 gates, the 3 boxes, the thinkers), Murshid as the product, the 3 candidate ICPs, the chosen ICP in 3 boxes, why it was chosen, and the discovery stack.
-* [ ] Stage 1 — Negative ICP / Exclusions
+* [x] Stage 1 — Negative ICP / Exclusions — **done.** Four buckets (never / not now / free tier only / never cold call), why it is not the inverse of the ICP, the four reasons to exclude, both lists, the channel rule, and how the suppression list is enforced in the system.
 * [ ] Stage 1 — Signal Identification
 * [ ] Stage 2 — Building the database
 * [ ] Stage 2 — Waterfall Enrichment
@@ -162,9 +162,18 @@ Classes available for page bodies, all matching the existing style system:
 * **Pricing correction:** the monthly is defensible against their existing CRM spend; the large setup fee is what kills deals. Drop it to a small commitment fee credited back. First three clients priced near cost as design partners in exchange for documented results.
 * **Data reality:** Apollo and ZoomInfo have thin UAE SME coverage. Build the waterfall around the RERA broker register, the property portals, Google Maps and LinkedIn instead.
 
+### Page style, now established
+
+Both filled pages are written as **training docs for a sales head**, not reference material. The pattern to follow on every remaining page:
+
+* Open with an at-a-glance card so the whole point is readable in ten seconds.
+* Short sections with numbered parts. Aim for 8 to 9 rather than 5 dense ones.
+* Average paragraph around 25 words, one idea each.
+* Tables only for genuinely tabular data with short cells. Use `.mini` cards for anything scannable.
+* Keep total page length near 1,000 to 1,600 words.
+
 ### Up next
 
-* Negative ICP / Exclusions
 * Signal Identification, adapted for a product motion rather than a service sale
 * Tool guides for Instantly.ai and Zoko.io
 
